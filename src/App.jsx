@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Tasks from "./components/Tasks"
 import AddTasks from "./components/AddTasks";
 import { v4 } from "uuid";
+import Title from "./components/Title";
 
 function App() {
   const [tasks, setTasks] = useState(
@@ -55,7 +56,7 @@ function App() {
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6  ">
       <div className="w-125 space-y-4">
-        <h1 className="text-slate-100 text-3xl font-bold text-center">GERENCIADOR DE TAREFAS</h1>      
+        <Title>GERENCIADOR DE TAREFAS</Title>      
         <AddTasks onAddTaskSubmit={onAddTaskSubmit}/>
         <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick}/>
       </div>
