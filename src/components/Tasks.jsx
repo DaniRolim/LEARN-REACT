@@ -15,7 +15,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick, message}) {
         <div>
                 <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow-md">
                     {tasks.length === 0 ? (
-                        <p className="text-slate-600">Nenhuma tarefa ainda</p>
+                        <p className="text-slate-600 text-center">Nenhuma tarefa ainda</p>
                     ) : (tasks.children)}
                     {tasks.map((task) => (
                         <li key={task.id} className="flex gap-2">
