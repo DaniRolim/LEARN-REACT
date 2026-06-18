@@ -2,7 +2,7 @@ import { ChevronRightIcon, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
-function Tasks({ tasks, onTaskClick, onDeleteTaskClick}) {
+function Tasks({ tasks, onTaskClick, onDeleteTaskClick, message}) {
     const navigate = useNavigate();
 
     function onSeeDetailsClick(task) {
@@ -14,12 +14,15 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick}) {
     return (
         <div>
                 <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow-md">
+                    {tasks.length === 0 ? (
+                        <p className="text-slate-600">Nenhuma tarefa ainda</p>
+                    ) : (tasks.children)}
                     {tasks.map((task) => (
                         <li key={task.id} className="flex gap-2">
                             <button 
                                 className={`bg-slate-400 text-white text-left p-2 w-full rounded-md ${task.isCompleted && 'line-through'}`}
                                 onClick={() => onTaskClick(task.id)}
-                            >
+                                >
                                 {task.title}
                             </button>
                             <Button 
