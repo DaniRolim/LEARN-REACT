@@ -54,7 +54,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-500 flex justify-center p-6  ">
+    <div className="w-screen min-h-screen bg-slate-500 flex justify-center p-6  ">
       <div className="w-125 space-y-4">
         <Title>GERENCIADOR DE TAREFAS</Title>      
         <AddTasks onAddTaskSubmit={onAddTaskSubmit}/>

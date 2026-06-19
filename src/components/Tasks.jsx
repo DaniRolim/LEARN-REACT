@@ -1,7 +1,6 @@
 import { ChevronRightIcon, Trash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-import Draggable from "react-draggable";
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick, message }) {
   const navigate = useNavigate();
@@ -22,14 +21,12 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick, message }) {
         )}
         {tasks.map((task) => (
           <li key={task.id} className="flex gap-2">
-            <Draggable>
-                <button
-                    className={`bg-slate-400 text-white text-left cursor-grab text-2xl p-2 w-full rounded-md ${task.isCompleted && "line-through decoration-black decoration-wavy"}`}
-                    onClick={() => onTaskClick(task.id)}
-                    >
-                    {task.title}
-                </button>
-            </Draggable>
+              <button
+                  className={`bg-slate-400 text-white text-left cursor-pointer text-2xl p-2 w-full wrap-anywhere rounded-md ${task.isCompleted && "line-through decoration-black decoration-wavy"}`}
+                  onClick={() => onTaskClick(task.id)}
+                  >
+                  {task.title}
+              </button>
             
             <Button onClick={() => onSeeDetailsClick(task)}>
               <ChevronRightIcon />
